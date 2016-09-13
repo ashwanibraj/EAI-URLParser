@@ -34,8 +34,7 @@ public class URLParser{
 		return null;
 	}
 
-	public ArrayList<String> getSitesFromPage(String pageURL, int numOfSites){
-		ArrayList<String> sitesOnPage = new ArrayList<String>();
+	public void getSitesFromPage(String pageURL, int numOfSites){
 		try {
 			String[] lines = getRawTextFromURL(pageURL).split("\n");			
 			Pattern patternLinesWithSites = Pattern.compile("siteinfo/(.*?)\"");
@@ -53,8 +52,6 @@ public class URLParser{
 		} catch (Exception e){
 			System.out.println("UnExpected Exception:"+e);
 		}
-
-		return sitesOnPage;
 	}
 
 	public void listTopSites(int numOfSites){
